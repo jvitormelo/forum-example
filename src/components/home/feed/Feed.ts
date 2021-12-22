@@ -2,8 +2,8 @@ import { Component, Vue } from 'vue-property-decorator';
 
 
 @Component({
-  name:'Navbar'
+  name:'Feed'
 })
-export default class Navbar extends Vue{
+export default class Feed extends Vue{
 
 }
