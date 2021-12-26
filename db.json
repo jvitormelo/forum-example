@@ -1,130 +1,14 @@
 {
   "articles": [
-    {
-      "id": 3,
-      "title": "TESTE JOAO 2",
-      "description": "TESTE JOAO 2",
-      "isValid": false,
-      "userId": 13,
-      "createdAt": "2021-12-26T06:35:28.195Z"
-    },
-    {
-      "id": 4,
-      "title": "TESTE JOAO 2",
-      "isValid": false,
-      "description": "TESTE JOAO 2",
-      "userId": 13,
-      "createdAt": "2021-12-26T06:35:30.973Z"
-    },
-    {
-      "id": 5,
-      "title": "A",
-      "description": "b",
-      "isValid": false,
-      "userId": 9,
-      "createdAt": "2021-12-26T06:43:20.434Z"
-    },
-    {
-      "id": 6,
-      "title": "C",
-      "description": "e",
-      "isValid": false,
-      "userId": 9,
-      "createdAt": "2021-12-26T06:43:38.457Z"
-    }
+
   ],
   "users": [
-    {
-      "id": 1,
-      "name": "João Melo",
-      "email": "teste@teste.com",
-      "password": "123456"
-    },
-    {
-      "username": "teste",
-      "email": "teste2@gmail.com",
-      "password": "123456",
-      "id": 2
-    },
-    {
-      "password": "123456",
-      "email": "teste@gmail.com",
-      "username": "joao",
-      "id": 3
-    },
-    {
-      "password": "123456",
-      "email": "teste23@gmail.com",
-      "username": "joao",
-      "id": 4
-    },
-    {
-      "password": "123456",
-      "email": "pao@gmail.com",
-      "username": "pao",
-      "id": 5
-    },
-    {
-      "password": "123456",
-      "email": "teste3@gmail.com",
-      "username": "Teste",
-      "id": 6
-    },
-    {
-      "password": "123456",
-      "email": "teste5@gmail.com",
-      "username": "TESTE",
-      "id": 7
-    },
-    {
-      "password": "123456",
-      "email": "teste9@gmail.com",
-      "username": "joao",
-      "id": 8
-    },
-    {
-      "password": "123456",
-      "email": "joao@gmail.com",
-      "username": "teste999",
-      "id": 9
-    },
-    {
-      "password": "123456",
-      "email": "pao2@gmail.com",
-      "username": "paio",
-      "id": 10
-    },
-    {
-      "password": "123456",
-      "email": "pao5@gmail.com",
-      "username": "pao",
-      "id": 11
-    },
-    {
-      "password": "123456",
-      "email": "joaoteste@gmail.com",
-      "username": "joao",
-      "id": 12
-    },
-    {
-      "password": "1234567",
-      "email": "joao2@gmail.com",
-      "username": "Joao2",
-      "id": 13
-    }
+
   ],
   "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1,
-      "authorId": 1
-    }
+
   ],
   "likes": [
-    {
-      "articleId": "typicode",
-      "userId": ''
-    }
+
   ]
 }
