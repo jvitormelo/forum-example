@@ -1,19 +1,19 @@
 <template>
-  <div class='fullscreen bg-blue text-white text-center q-pa-md flex flex-center'>
+  <div class='fullscreen bg-dark text-white text-center q-pa-md flex flex-center'>
     <div>
       <div style='font-size: 30vh'>
         404
       </div>
 
-      <div class='text-h2' style='opacity:.4'>
+      <div class='text-h2'>
         Oops... Página não encontrada
       </div>
 
       <q-btn
         class='q-mt-xl'
-        color='white'
-        text-color='blue'
+        color='primary'
         unelevated
+        rounded
         to='/'
         label='Voltar para o início'
         no-caps

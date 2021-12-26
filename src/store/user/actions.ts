@@ -1,9 +1,11 @@
 import { ActionTree } from 'vuex';
 import { StateInterface } from '../index';
 import { ExampleStateInterface } from './state';
-import UserRepository, { UserDTO } from 'src/repositories/UserRepository';
+import UserRepository from 'src/repositories/UserRepository';
 import TokenHandler from 'src/utils/TokenHandler';
 import JWTService from 'src/services/JWTService';
+import { UserDTO } from 'src/types/DTOs/UserDTO';
+import { errorMessages } from 'src/utils/feedbackMessages/errorMessages';
 
 interface SignInParams {
   email: string;
@@ -18,18 +20,27 @@ export type SignUpAction = (payload: SignUpParams) => Promise<void>
 export type SignInAction = (payload: SignInParams) => Promise<void>
 
 const actions: ActionTree<ExampleStateInterface, StateInterface> = {
+  async getUserFromToken({ commit }){
+    const token = TokenHandler.getToken();
+    if(!token) return
+    const { id } = JWTService.verify(token);
+    const {data} = await UserRepository.find({id})
+    const user = data[0]
+    commit('SET_USER', user)
+  },
+
   async signIn({ dispatch }, { email, password }: SignInParams) {
     const { data } = await UserRepository.find({
       email
     });
     const user = data[0] || null;
 
-    // TODO mover para um arquivos as mensagens
-    if (!user) throw new Error('Usuário não cadastro');
 
-    // TODO mover para um arquivos as mensagens
+    if (!user) throw new Error(errorMessages.notRegisteredUser);
+
+
     if (user.password !== password)
-      throw new Error('Email ou senha incorretos');
+      throw new Error(errorMessages.passwordOrEmailIncorrect);
 
 
     await dispatch('logIn', user);

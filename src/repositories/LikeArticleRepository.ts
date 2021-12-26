@@ -1,22 +1,7 @@
 import AbstractRepository from 'src/repositories/AbstractRepository';
-
-
-
-interface IsLikedParams {
-  articleId: number;
-  userId: number;
-}
-
-interface LikeDTO  extends IsLikedParams{
-  id: number;
-  createdAt:Date;
-
-}
+import { LikeDTO } from 'src/types/DTOs/LikeDTO';
 
 class LikeArticleRepository extends AbstractRepository {
-  //TODO remover o userID no futuro
-
-
   async getAllLikes(articleId: number) {
     const { data } = await this.api.get<LikeDTO[]>('likes', {
       params: {
@@ -27,8 +12,7 @@ class LikeArticleRepository extends AbstractRepository {
     return data.length;
   }
 
-  async isLiked(params: IsLikedParams) {
-    console.log('chamou');
+  async isLiked(params: Omit<LikeDTO, 'id' | 'createdAt'>) {
     const { data } = await this.api.get<LikeDTO[]>('likes', {
       params
     });
@@ -36,8 +20,7 @@ class LikeArticleRepository extends AbstractRepository {
     return data[0]?.id || 0;
   }
 
-
-  async create(data: IsLikedParams) {
+  async create(data: Omit<LikeDTO, 'id' | 'createdAt'>) {
     const { data: like } = await this.api.post<LikeDTO>('likes', {
       ...data,
       createdAt: new Date()

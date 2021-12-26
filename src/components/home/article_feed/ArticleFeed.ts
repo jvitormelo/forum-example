@@ -1,7 +1,7 @@
 import { Component, Inject, Provide } from 'vue-property-decorator';
 import { Getter } from 'vuex-class';
 import AbstractController from 'src/services/AbstractController';
-import ArticleRepository, { ArticleDTO } from 'src/repositories/ArticleRepository';
+import ArticleRepository from 'src/repositories/ArticleRepository';
 import {
   CreateOrEditArticleRef
 } from 'components/home/article_feed/article_dialog/create_or_edit_article/CreateOrEditArticle';
@@ -9,6 +9,8 @@ import { ToggleAuthenticationDialog } from 'layouts/main_layout/MainLayout';
 import {
   FocusArticleRef
 } from 'components/home/article_feed/article_dialog/focus_article/FocusArticle';
+import { ArticleDTO } from 'src/types/DTOs/ArticleDTO';
+import { errorMessages } from 'src/utils/feedbackMessages/errorMessages';
 
 
 export type OpenArticle = (article: ArticleDTO) => void
@@ -44,7 +46,7 @@ export default class ArticleFeed extends AbstractController {
 
 
   get maxWidth() {
-    return this.$q.screen.lt.sm ? '90vw' : '50vw';
+    return this.isMobile ? '90vw' : '50vw';
   }
 
   async createdHandler(): Promise<void> {
@@ -56,7 +58,7 @@ export default class ArticleFeed extends AbstractController {
       this.articles = await ArticleRepository.index();
     } catch (e) {
       this.openSnackbar({
-        message: (e as Error).message || 'Erro inesperado',
+        message: (e as Error).message || errorMessages.unexpected,
         type: 'error'
       });
     }

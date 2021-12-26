@@ -5,23 +5,23 @@
         Forum CRUD
       </q-toolbar-title>
       <div v-if='isAuthenticated' @click='logOut'>
-        <q-btn color='primary'>
+        <q-btn color='primary' rounded>
           SAIR
         </q-btn>
       </div>
-      <div v-else>
-        <q-btn
-          color='primary'
-          class='q-mr-md'
-          rounded
-          @click="toggleDialog('signIn')"
-        >
-          ENTRAR
-        </q-btn>
-        <q-btn color='primary'  rounded @click="toggleDialog('signUp')">
-          CADASTRAR
-        </q-btn>
-      </div>
+<!--      <div v-else>-->
+<!--        <q-btn-->
+<!--          color='primary'-->
+<!--          class='q-mr-md'-->
+<!--          rounded-->
+<!--          @click="toggleDialog('signIn')"-->
+<!--        >-->
+<!--          ENTRAR-->
+<!--        </q-btn>-->
+<!--        <q-btn color='primary'  rounded @click="toggleDialog('signUp')">-->
+<!--          CADASTRAR-->
+<!--        </q-btn>-->
+<!--      </div>-->
     </q-toolbar>
   </q-header>
 </template>

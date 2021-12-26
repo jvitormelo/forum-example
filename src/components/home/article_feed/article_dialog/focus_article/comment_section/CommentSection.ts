@@ -1,8 +1,11 @@
 import AbstractController from 'src/services/AbstractController';
 import { Component, Inject, Prop } from 'vue-property-decorator';
-import CommentRepository, { CommentDTO } from 'src/repositories/CommentRepository';
+import CommentRepository from 'src/repositories/CommentRepository';
 import { Getter } from 'vuex-class';
 import { ToggleAuthenticationDialog } from 'layouts/main_layout/MainLayout';
+import { CommentDTO } from 'src/types/DTOs/CommentDTO';
+import { errorMessages } from 'src/utils/feedbackMessages/errorMessages';
+import { successMessages } from 'src/utils/feedbackMessages/successMessages';
 
 
 @Component({
@@ -26,7 +29,9 @@ export default class CommentSection extends AbstractController {
   async createComment() {
     try {
       if (!this.formData.message) return;
+
       //TODO remover o userId
+
       const comment = await CommentRepository.create({
         message: this.formData.message,
         userId: this.userId,
@@ -35,13 +40,13 @@ export default class CommentSection extends AbstractController {
       this.comments.push(comment)
       this.openSnackbar({
         type: 'success',
-        message: 'Mensagem enviada com sucesso!'
+        message:successMessages.commentCreated
       });
       this.formData.message = '';
     } catch (e) {
       this.openSnackbar({
         type: 'error',
-        message: 'Erro inesperado'
+        message: errorMessages.unexpected
       });
     }
   }

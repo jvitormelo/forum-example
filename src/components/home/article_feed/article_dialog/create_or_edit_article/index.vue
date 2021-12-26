@@ -1,6 +1,9 @@
 <template>
   <q-dialog v-model='isOpen'>
-    <q-card class='q-pa-md' style='min-width: 50vw; '>
+    <q-card class='q-pa-md' style='min-width: 50vw; position: relative '>
+      <div class='flex justify-end'>
+        <CloseIcon  :on-click='closeDialog'  />
+      </div>
       <div class='text-h6 q-mb-md  text-center text-dark'>{{ strategy.title }}</div>
       <q-form @submit='handleSubmit'>
         <Input :value.sync='formData.title' label='Título' name='title' :rules='formRules.title' />
@@ -21,6 +24,7 @@
 
 <script>
 import CreateOrEditArticle from './CreateOrEditArticle';
+
 
 
 export default CreateOrEditArticle;

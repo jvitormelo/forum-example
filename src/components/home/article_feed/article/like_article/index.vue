@@ -1,6 +1,6 @@
 <template>
   <div class='flex items-center'>
-    <q-icon @click='handleClick' style='cursor: pointer' :color='isLiked ? "primary" : "" '
+    <q-icon @click='handleClick'  class='cursor-pointer' :color='isLiked ? "primary" : "" '
             size='sm' name='mdi-thumb-up-outline '></q-icon>
     <span>{{ numberOfLikes }}</span>
   </div>

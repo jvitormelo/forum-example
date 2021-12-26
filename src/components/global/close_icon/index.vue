@@ -1,5 +1,5 @@
 <template>
-  <q-icon @click='onClick' style='cursor: pointer' size='md' color='negative' name='close' />
+  <q-icon @click='onClick' class='cursor-pointer'  size='md' color='negative' name='close' />
 </template>
 
 <script lang='ts'>

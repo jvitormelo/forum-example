@@ -1,12 +1,5 @@
 import AbstractRepository from 'src/repositories/AbstractRepository';
-
-export interface UserDTO {
-  id: number
-  username: string,
-  password: string,
-  email: string
-}
-
+import { UserDTO } from 'src/types/DTOs/UserDTO';
 
 class UserRepository extends AbstractRepository {
   async create({ password, email, username }: Omit<UserDTO, 'id'>) {

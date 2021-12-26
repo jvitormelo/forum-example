@@ -1,6 +1,7 @@
 import AbstractController from 'src/services/AbstractController';
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { ArticleDTO } from 'src/repositories/ArticleRepository';
+import { ArticleDTO } from 'src/types/DTOs/ArticleDTO';
+
 
 export interface FocusArticleRef extends Vue {
   openDialog(): void;

@@ -1,12 +1,15 @@
-import { Component, PropSync, Vue } from 'vue-property-decorator';
+import { Component, Emit, PropSync } from 'vue-property-decorator';
 import { minLength, required, validateEmail } from 'src/utils/formRules';
 import AbstractController from 'src/services/AbstractController';
 import { Action } from 'vuex-class';
 import { SignInAction } from 'src/store/user/actions';
+import { errorMessages } from 'src/utils/feedbackMessages/errorMessages';
+import { successMessages } from 'src/utils/feedbackMessages/successMessages';
 
 
 @Component({
-  name: 'SignIn'
+  name: 'SignIn',
+  components: {  CloseIcon: () => import('src/components/global/close_icon/index.vue') , Input: () => import('src/components/global/input/index.vue') }
 })
 export default class SignIn extends AbstractController {
   @Action('User/signIn') signIn!: SignInAction;
@@ -33,6 +36,13 @@ export default class SignIn extends AbstractController {
     };
   }
 
+
+  @Emit('openSignUp')
+  createAccountHandler(){
+    this.close()
+
+  }
+
   close() {
     this.isOpenSynced = false;
   }
@@ -41,15 +51,14 @@ export default class SignIn extends AbstractController {
     try {
       this.isLoading = true;
       await this.signIn(this.formData);
-      // TODO encapsular mensagem
       this.openSnackbar({
         type: 'success',
-        message: 'Logado sucesso!'
+        message: successMessages.commentCreated
       });
     } catch (error) {
       this.openSnackbar({
         type: 'error',
-        message: (error as Error).message || 'Erro inesperado'
+        message: (error as Error).message || errorMessages.unexpected
       });
     } finally {
       this.isLoading = false;

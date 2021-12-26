@@ -3,10 +3,13 @@ import { minLength, required, validateEmail } from 'src/utils/formRules';
 import { Action } from 'vuex-class';
 import { SignUpAction } from 'src/store/user/actions';
 import AbstractController from 'src/services/AbstractController';
+import { errorMessages } from 'src/utils/feedbackMessages/errorMessages';
+import { successMessages } from 'src/utils/feedbackMessages/successMessages';
 
 // TODO achar uma maneira de diminuir a repetição de codigo entre o SignIn e SignUp
 @Component({
-  name: 'SignUp'
+  name: 'SignUp',
+  components: { CloseIcon: () => import('src/components/global/close_icon/index.vue') }
 })
 export default class SignUp extends AbstractController {
   @Action('User/signUp') signUp!: SignUpAction;
@@ -48,15 +51,14 @@ export default class SignUp extends AbstractController {
     try {
       this.isLoading = true;
       await this.signUp(this.formData);
-      // TODO encapsular mensagem
       this.openSnackbar({
         type: 'success',
-        message: 'Cadastrado com sucesso!'
+        message: successMessages.signUp
       });
     } catch (error) {
       this.openSnackbar({
         type: 'error',
-        message: (error as Error).message || 'Erro inesperado'
+        message: (error as Error).message || errorMessages.unexpected
       });
     } finally {
       this.isLoading = false;

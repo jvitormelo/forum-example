@@ -1,7 +1,8 @@
 import AbstractController from 'src/services/AbstractController';
 import { Component, Prop } from 'vue-property-decorator';
-import { CommentDTO } from 'src/repositories/CommentRepository';
+
 import { formatDateTo } from 'src/utils/converters';
+import { CommentDTO } from 'src/types/DTOs/CommentDTO';
 
 @Component({
   name: 'Comment',

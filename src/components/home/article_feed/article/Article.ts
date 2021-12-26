@@ -1,9 +1,12 @@
 import { Component, Emit, Inject, Prop } from 'vue-property-decorator';
-import ArticleRepository, { ArticleDTO } from 'src/repositories/ArticleRepository';
+import ArticleRepository from 'src/repositories/ArticleRepository';
 import { Getter } from 'vuex-class';
 import AbstractController from 'src/services/AbstractController';
 import { OpenArticle, RemoveArticle } from 'components/home/article_feed/ArticleFeed';
 import { formatDateTo } from 'src/utils/converters';
+import { ArticleDTO } from 'src/types/DTOs/ArticleDTO';
+import { errorMessages } from 'src/utils/feedbackMessages/errorMessages';
+import { successMessages } from 'src/utils/feedbackMessages/successMessages';
 
 @Component({
   name: 'Article',
@@ -64,13 +67,13 @@ export default class Article extends AbstractController {
         await ArticleRepository.delete(articleId);
         this.removeArticle(articleId);
         this.openSnackbar({
-          message: 'Artigo deletado com sucesso!',
+          message: successMessages.articleDeleted,
           type: 'success'
         });
         this.$emit('articleDeleted')
       } catch (e) {
         this.openSnackbar({
-          message: 'Não foi possível deletar o artigo!',
+          message: errorMessages.deleteArticle,
           type: 'error'
         });
       } finally {

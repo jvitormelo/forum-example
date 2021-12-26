@@ -4,7 +4,7 @@
       <div style='position: absolute; right: 0; top: 0; transform: translateX(-75%) translateY(75%); z-index: 9'>
         <CloseIcon :on-click='closeDialog' />
       </div>
-      <section class='col-8'>
+      <section class='col-12 col-sm-8'>
         <FeedItem @articleDeleted='closeDialog' :article='article' />
       </section>
       <CommentSection :article-id='article.id' />

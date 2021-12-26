@@ -1,20 +1,9 @@
 import AbstractRepository from 'src/repositories/AbstractRepository';
-import UserRepository, { UserDTO } from 'src/repositories/UserRepository';
+import UserRepository from 'src/repositories/UserRepository';
+import { ArticleDTO } from 'src/types/DTOs/ArticleDTO';
 
-
-export interface ArticleDTO {
-  id: number;
-  title: string;
-  description: string;
-  userId: number;
-  createdAt: Date;
-  user: UserDTO;
-}
-
-
-// TODO criar middleware para o json server para ele ler o Token no header
 class ArticleRepository extends AbstractRepository {
-  protected async findAuthor(userId: number) {
+  private async findAuthor(userId: number) {
     const { data } = await UserRepository.find({ id: userId });
     return data[0];
   }
@@ -31,15 +20,14 @@ class ArticleRepository extends AbstractRepository {
     return Promise.all(articlePromises);
   }
 
-  async create(articleDTO: Omit<ArticleDTO, 'id' | 'createdAt'  | 'user'>) {
+  async create(articleDTO: Omit<ArticleDTO, 'id' | 'createdAt' >) {
     const { data } = await this.api.post<ArticleDTO>('articles', {
       ...articleDTO,
       createdAt: new Date()
-    } as ArticleDTO);
-    const user = await this.findAuthor(data.userId);
+    } as ArticleDTO)
     return {
       ...data,
-      user
+      user: articleDTO.user
     };
 
   }

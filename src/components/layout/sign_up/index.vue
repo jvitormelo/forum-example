@@ -2,7 +2,7 @@
   <q-dialog v-model='isOpenSynced'>
     <q-card class='q-pa-md flex column ' style='min-width: 30vw'>
       <div class='flex justify-end q-mb-md'>
-        <q-icon @click='close' style='cursor: pointer' size='md' color='negative' name='close' />
+       <CloseIcon/>
       </div>
       <q-form autocomplete='off' v-model='formData.isValid' @submit='handleSubmit'
               class='flex column' style='gap: 1rem;'>
@@ -13,14 +13,13 @@
         <q-input filled :rules='formRules.password' v-model='formData.password' label='Senha'
                  name='password' :type='passwordVisibility ? "text" : "password"'>
           <template v-slot:append>
-            <q-icon style='cursor: pointer' color='primary'
+            <q-icon class='cursor-pointer'  color='primary'
                     @click='passwordVisibility = !passwordVisibility' size='sm'
-
                     :name="passwordVisibility ? 'mdi-eye-off' : 'mdi-eye'" />
           </template>
         </q-input>
 
-        <span @click='alreadyHaveAccountHandler' class='text-center' style='text-decoration: underline;cursor: pointer'>Já tem conta? <strong >ENTRAR</strong> </span>
+        <span @click='alreadyHaveAccountHandler' class='text-center cursor-pointer' style='text-decoration: underline;'>Já tem conta? <strong >ENTRAR</strong> </span>
         <q-btn rounded :loading='isLoading' :disable='!formData.isValid' color='primary' type='submit'>Cadastrar
         </q-btn>
       </q-form>
@@ -31,6 +30,7 @@
 
 <script>
 import SignUp from './SignUp';
+import CloseIcon from '../../global/close_icon';
 
 export default SignUp;
 </script>

@@ -1,5 +1,4 @@
 import { AxiosRequestConfig } from 'axios';
-import AbstractProcessor from 'src/services/api/interceptors/AbstractProcessor';
 import AuthorizationHandler from 'src/services/api/interceptors/request/AuthorizationHandler';
 
 interface IHandler {
@@ -9,8 +8,7 @@ interface IHandler {
 }
 
 
-class RequestProcessor extends AbstractProcessor {
-
+class RequestProcessor  {
   handlers: IHandler[] = [
     AuthorizationHandler
   ];

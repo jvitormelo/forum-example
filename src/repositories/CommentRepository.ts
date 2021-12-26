@@ -1,16 +1,6 @@
 import AbstractRepository from 'src/repositories/AbstractRepository';
-import UserRepository, { UserDTO } from 'src/repositories/UserRepository';
-
-
-
-export interface CommentDTO {
-  id: number;
-  articleId: number,
-  message: string,
-  userId: number
-  user: UserDTO
-  createdAt: Date
-}
+import UserRepository from 'src/repositories/UserRepository';
+import { CommentDTO } from 'src/types/DTOs/CommentDTO';
 
 class CommentRepository extends AbstractRepository {
   async create({ message, userId, articleId }: Omit<CommentDTO, 'user' | 'createdAt' | 'id'>) {

@@ -36,7 +36,7 @@ export default class LikeArticle extends AbstractController {
 
   @Watch('userId', {deep:true, immediate:true})
   async checkIfIsLiked() {
-    console.log(this.userId);
+
     if (!this.userId) {
       return this.likeId = 0;
     }
@@ -50,7 +50,7 @@ export default class LikeArticle extends AbstractController {
 
   async handleClick() {
     if (!this.isAuthenticated) {
-      return this.toggleAuthenticationDialog('signIn');
+      return this.toggleAuthenticationDialog('signUp');
     }
     await this.strategy.action();
   }

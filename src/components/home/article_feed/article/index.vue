@@ -12,15 +12,17 @@
     <div class='flex q-mt-md justify-end'>
       {{ formatDate(article.createdAt) }}
     </div>
+    <div style='height: 1px' class='bg-dark' />
 
     <div class='flex row q-mt-md items-center'>
       <div class='flex q-mr-auto' v-if='isLoggedUserAuthor'>
-        <q-icon class='q-mr-sm' style='cursor: pointer' :loading='isLoading.delete'  size='md' @click='handleDelete' name='mdi-trash-can' color='negative' />
-        <q-icon @click='handleEdit' style='cursor: pointer'  size='md' name='mdi-pencil' color='primary'/>
+        <q-icon class='q-mr-sm cursor-pointer'  :loading='isLoading.delete'  size='md' @click='handleDelete' name='mdi-trash-can' color='negative' />
+        <q-icon @click='handleEdit' class='cursor-pointer' size='md' name='mdi-pencil' color='primary'/>
       </div>
+
       <div class='flex q-ml-auto '>
         <LikeArticle :article-id='article.id' />
-        <q-icon style='cursor: pointer' v-if='isOnFeed' color='primary' name='mdi-chat-outline' size='sm' class='q-ml-md'
+        <q-icon  v-if='isOnFeed'  color='primary' name='mdi-chat-outline' size='sm' class='q-ml-md cursor-pointer'
                 @click='handleComment' />
       </div>
     </div>

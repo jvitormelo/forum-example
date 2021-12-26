@@ -1,8 +1,11 @@
 import AbstractController from 'src/services/AbstractController';
 import { Component, Emit, Vue, Watch } from 'vue-property-decorator';
-import ArticleRepository, { ArticleDTO } from 'src/repositories/ArticleRepository';
-import { Getter } from 'vuex-class';
+import ArticleRepository from 'src/repositories/ArticleRepository';
+import { State } from 'vuex-class';
 import { required } from 'src/utils/formRules';
+import { UserDTO } from 'src/types/DTOs/UserDTO';
+import { ArticleDTO } from 'src/types/DTOs/ArticleDTO';
+import { errorMessages } from 'src/utils/feedbackMessages/errorMessages';
 
 
 export interface CreateOrEditArticleRef extends Vue {
@@ -18,10 +21,10 @@ interface Strategy {
 
 @Component({
   name: 'CreateOrEditArticle',
-  components: { Input: () => import('src/components/global/input/index.vue') }
+  components: { CloseIcon: () => import('src/components/global/close_icon/index.vue'), Input: () => import('src/components/global/input/index.vue') }
 })
 export default class CreateOrEditArticle extends AbstractController {
-  @Getter('User/userId') userId!: number;
+  @State(state => state.User.user) user!:UserDTO
 
   isOpen = false;
 
@@ -47,10 +50,9 @@ export default class CreateOrEditArticle extends AbstractController {
       this.isLoading = true;
       const article = await ArticleRepository[repositoryMethod]({
         ...this.formData,
-        userId: this.userId
+        userId: this.user.id,
+        user: this.user
       });
-
-      console.log(article);
       this.openSnackbar({
         message: successMessage,
         type: 'success'
@@ -60,7 +62,7 @@ export default class CreateOrEditArticle extends AbstractController {
     } catch (e) {
       this.openSnackbar({
         type: 'error',
-        message: (e as Error).message || 'Erro inesperado'
+        message: (e as Error).message || errorMessages.unexpected
       });
     } finally {
       this.isLoading = false;

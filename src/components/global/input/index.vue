@@ -1,6 +1,8 @@
 <template>
-  <q-input filled :rules='rules'  v-model='valueSynced' :type='type' :label='label' :name='name'>
-
+  <q-input filled :rules='rules'  v-model='valueSynced'  :type='type' :label='label' :name='name'>
+  <template #append>
+    <slot name='append'></slot>
+  </template>
   </q-input>
 </template>
 
@@ -16,6 +18,8 @@ export default class Input extends Vue{
   @Prop(Array)rules!: ()=>void[]
   @Prop(String)label!:string
   @Prop(String)name!:string
+
+
 
 };
 </script>

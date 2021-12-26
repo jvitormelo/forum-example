@@ -1,6 +1,7 @@
 import { MutationTree } from 'vuex';
 import { ExampleStateInterface } from './state';
-import { UserDTO } from 'src/repositories/UserRepository';
+import { UserDTO } from 'src/types/DTOs/UserDTO';
+
 
 const mutation: MutationTree<ExampleStateInterface> = {
   SET_USER(state, { username, email, id }: UserDTO) {

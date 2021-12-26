@@ -6,16 +6,15 @@ interface OpenSnackbar {
 }
 
 
-@Component(
-  {
-    name: 'AbstractController'
-  }
-)
+@Component({ name: 'AbstractController' })
 export default class AbstractController extends Vue {
   isLoading = false;
 
-  async createdHandler(): Promise<void> {
+  get isMobile(){
+    return this.$q.screen.lt.sm
   }
+
+  async createdHandler(): Promise<void> {}
 
   async created() {
     try {
@@ -25,6 +24,9 @@ export default class AbstractController extends Vue {
       this.isLoading = false;
     }
   }
+
+
+
 
 
   openSnackbar({ message, type }: OpenSnackbar) {

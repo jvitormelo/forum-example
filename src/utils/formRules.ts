@@ -12,7 +12,6 @@ export const validateEmail = (value: string) => {
   return isEmail(formattedValue) || errorMessage ;
 };
 
-
 export const minLength = (minLength = 6) => {
   return (value: string) => value.length >= minLength || `Mínimo de ${minLength} caracteres`;
 };
