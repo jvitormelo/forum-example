@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A Quasar Framework app",
   "productName": "Forum example",
-  "author": "jvitormelo <jvitor.ovidio2@hotmail.com>",
+  "author": "jvitormelo",
   "private": true,
   "scripts": {
     "dev": "quasar dev",
