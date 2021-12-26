@@ -1,12 +1,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 
+
 @Component({
-  name:'Home',
-  components:{
-    Header: () => import('./components/header/index.vue'),
-    Navbar: () => import('./components/navbar/index.vue')
+  name: 'Home',
+  components: {
+    Feed: () => import('components/home/article_feed/index.vue'),
   }
 })
-export default class Home extends Vue{
+export default class Home extends Vue {
 
 }

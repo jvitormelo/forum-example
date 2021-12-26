@@ -2,15 +2,15 @@ import { RouteConfig } from 'vue-router';
 
 const routes: RouteConfig[] = [
   {
-    path: '/',
-    component: () => import('src/pages/home/index.vue')
+    path:'/',
+    component: () => import('src/layouts/main_layout/index.vue'),
+    children: [
+      { path: '', component: () => import('src/pages/home/index.vue'), name:'Home' }
+    ]
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '*',
-    component: () => import('pages/Error404.vue')
+    component: () => import('pages/not_found/index.vue')
   }
 ];
 
