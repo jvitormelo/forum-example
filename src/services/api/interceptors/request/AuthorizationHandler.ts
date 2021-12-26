@@ -3,8 +3,6 @@ import TokenHandler from 'src/utils/TokenHandler';
 
 
 class AuthorizationHandler {
-
-
   accept() {
     return true;
   }

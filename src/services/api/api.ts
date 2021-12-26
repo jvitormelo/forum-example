@@ -5,10 +5,11 @@ const api = axios.create({
   baseURL: 'http://localhost:3000/'
 });
 
-// api.interceptors.request.use((request) => {
-//   RequestProcessor.run(request);
-// });
-//
+api.interceptors.request.use((request) => {
+  RequestProcessor.run(request);
+  return request
+});
+
 // api.interceptors.response.use((response) => {
 //   return response;
 // });

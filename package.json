@@ -13,11 +13,14 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "@types/date-fns": "^2.6.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "date-fns": "^2.27.0",
     "json-server": "^0.17.0",
     "jsonwebtoken": "^8.5.1",
     "quasar": "^1.0.0",
+    "validator": "^13.7.0",
     "vue-class-component": "^7.2.2",
     "vue-property-decorator": "^8.3.0",
     "vuex-class": "^0.3.2"
@@ -26,6 +29,7 @@
     "@quasar/app": "^2.0.0",
     "@types/jsonwebtoken": "^8.5.6",
     "@types/node": "^10.17.15",
+    "@types/validator": "^13.7.1",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
     "babel-eslint": "^10.0.1",

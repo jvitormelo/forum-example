@@ -21,7 +21,6 @@ class RequestProcessor extends AbstractProcessor {
         handler.execute(request);
       }
     });
-    return request
   }
 }
 

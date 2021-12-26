@@ -12,10 +12,18 @@ interface OpenSnackbar {
   }
 )
 export default class AbstractController extends Vue {
-  async createdHandler(): Promise<void> {}
+  isLoading = false;
+
+  async createdHandler(): Promise<void> {
+  }
 
   async created() {
-    await this.createdHandler();
+    try {
+      this.isLoading = true;
+      await this.createdHandler();
+    } finally {
+      this.isLoading = false;
+    }
   }
 
 

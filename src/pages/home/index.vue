@@ -1,6 +1,5 @@
 <template>
   <div class='flex column'>
-    <Header />
     <Feed/>
   </div>
 </template>

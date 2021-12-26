@@ -1,5 +1,6 @@
 import { AxiosInstance } from 'axios';
 import api from 'src/services/api/api';
+import UserRepository from 'src/repositories/UserRepository';
 
 export default class AbstractRepository {
   protected api: AxiosInstance;
@@ -7,6 +8,7 @@ export default class AbstractRepository {
   constructor() {
     this.api = api;
   }
+
 
 
 }

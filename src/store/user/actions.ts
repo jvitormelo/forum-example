@@ -52,7 +52,7 @@ const actions: ActionTree<ExampleStateInterface, StateInterface> = {
   logIn({ commit }, user: UserDTO) {
 
     const token = JWTService.create({
-      id: String(user.id)
+      id:user.id
     });
 
     TokenHandler.setToken(token);
@@ -64,6 +64,7 @@ const actions: ActionTree<ExampleStateInterface, StateInterface> = {
     TokenHandler.clearToken();
     commit('SET_USER', {});
   }
+
 };
 
 export default actions;

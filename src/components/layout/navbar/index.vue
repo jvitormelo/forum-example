@@ -1,29 +1,29 @@
 <template>
-  <q-toolbar >
-    <q-toolbar-title>
-      Forum Example
-    </q-toolbar-title>
-
-    <div v-if='isAuthenticated' @click='logOutHandler'>
-      <q-btn color='primary'>
-        Logout
-      </q-btn>
-    </div>
-    <div v-else>
-      <q-btn
-        class='q-mx-md'
-        @click="toggleDialog('signIn')"
-      >
-        Sign in
-      </q-btn>
-      <q-btn @click="toggleDialog('signUp')">
-        Sign Up
-      </q-btn>
-      <SignUp :is-open.sync='isOpen.signUp' />
-      <SignIn :is-open.sync='isOpen.signIn' />
-    </div>
-
-  </q-toolbar>
+  <q-header id='header' >
+    <q-toolbar>
+      <q-toolbar-title>
+        Forum CRUD
+      </q-toolbar-title>
+      <div v-if='isAuthenticated' @click='logOut'>
+        <q-btn color='primary'>
+          SAIR
+        </q-btn>
+      </div>
+      <div v-else>
+        <q-btn
+          color='primary'
+          class='q-mr-md'
+          rounded
+          @click="toggleDialog('signIn')"
+        >
+          ENTRAR
+        </q-btn>
+        <q-btn color='primary'  rounded @click="toggleDialog('signUp')">
+          CADASTRAR
+        </q-btn>
+      </div>
+    </q-toolbar>
+  </q-header>
 </template>
 
 <script>
@@ -33,5 +33,10 @@ export default Header;
 </script>
 
 <style scoped>
+#header {
+  position: fixed;
+  top: 0;
+  background: rgba(25,25,28,.9);
+}
 
 </style>
