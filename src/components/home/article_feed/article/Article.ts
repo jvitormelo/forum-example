@@ -1,4 +1,4 @@
-import { Component, Emit, Inject, Prop } from 'vue-property-decorator';
+import { Component, Inject, Prop } from 'vue-property-decorator';
 import ArticleRepository from 'src/repositories/ArticleRepository';
 import { Getter } from 'vuex-class';
 import AbstractController from 'src/services/AbstractController';

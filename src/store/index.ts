@@ -1,6 +1,7 @@
 import { store } from 'quasar/wrappers';
 import Vuex from 'vuex';
 import User from './user';
+import { UserDTO } from 'src/types/DTOs/UserDTO';
 
 // import example from './module-example';
 // import { ExampleStateInterface } from './module-example/state';
@@ -11,7 +12,7 @@ import User from './user';
  */
 
 export interface StateInterface {
-  User: any;
+  User: UserDTO;
 }
 
 export default store(function({ Vue }) {

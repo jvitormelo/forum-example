@@ -32,7 +32,6 @@
 
 <script>
 import SignIn from './SignIn';
-import CloseIcon from '../../global/close_icon';
 
 
 export default SignIn;

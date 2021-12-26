@@ -30,7 +30,6 @@
 
 <script>
 import SignUp from './SignUp';
-import CloseIcon from '../../global/close_icon';
 
 export default SignUp;
 </script>

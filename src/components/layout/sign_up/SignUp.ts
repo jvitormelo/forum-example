@@ -1,4 +1,4 @@
-import { Component, Emit, PropSync, Vue } from 'vue-property-decorator';
+import { Component, Emit, PropSync } from 'vue-property-decorator';
 import { minLength, required, validateEmail } from 'src/utils/formRules';
 import { Action } from 'vuex-class';
 import { SignUpAction } from 'src/store/user/actions';
