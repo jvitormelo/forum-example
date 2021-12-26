@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "quasar dev",
+    "json-server": "json-server --watch db.json",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
   },
@@ -15,18 +16,22 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "json-server": "^0.17.0",
+    "jsonwebtoken": "^8.5.1",
     "quasar": "^1.0.0",
     "vue-class-component": "^7.2.2",
-    "vue-property-decorator": "^8.3.0"
+    "vue-property-decorator": "^8.3.0",
+    "vuex-class": "^0.3.2"
   },
   "devDependencies": {
     "@quasar/app": "^2.0.0",
+    "@types/jsonwebtoken": "^8.5.6",
     "@types/node": "^10.17.15",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.7.0"
   },
   "browserslist": [

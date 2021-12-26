@@ -1,12 +1,29 @@
-import { Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
-export default class AbstractController extends Vue{
+interface OpenSnackbar {
+  message: string,
+  type: 'error' | 'success'
+}
 
-  async createHandler(){
 
+@Component(
+  {
+    name: 'AbstractController'
+  }
+)
+export default class AbstractController extends Vue {
+  async createdHandler(): Promise<void> {}
+
+  async created() {
+    await this.createdHandler();
   }
 
-  async created(){
-    await  this.createHandler()
+
+  openSnackbar({ message, type }: OpenSnackbar) {
+    this.$q.notify({
+      message,
+      color: type === 'error' ? 'negative' : 'positive',
+      timeout: 750
+    });
   }
 }

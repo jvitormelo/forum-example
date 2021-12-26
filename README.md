@@ -1,26 +1,21 @@
 # Forum example (forum-example)
 
-A Quasar Framework app
+Um app de forum usando quasar v1 + vue 2.6 com Typescript 
 
-## Install the dependencies
+## Para instalar as depêndencias
 ```bash
 yarn
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Para ligar o json-server (importante)
+```bash
+yarn
+```
+
+### Para startar o App em modo de desenvolvedor
 ```bash
 quasar dev
 ```
 
-### Lint the files
-```bash
-yarn run lint
-```
 
-### Build the app for production
-```bash
-quasar build
-```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://v1.quasar.dev/quasar-cli/quasar-conf-js).

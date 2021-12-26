@@ -1,6 +1,6 @@
 <template>
-  <section class='window-width bg-green flex justify-center content-center' style='min-height: 10rem'>
-        <h3>Forum example</h3>
+  <section class='bg-green flex justify-center content-center' style='min-height: 10rem'>
+    <h3>Forum example</h3>
   </section>
 </template>
 
