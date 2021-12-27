@@ -1,6 +1,6 @@
 <template>
   <div class='flex column items-center'>
-    <q-btn @click='createArticleHandler'  size='lg' rounded color='primary' class='q-my-md'>
+    <q-btn id='new-article-btn' @click='createArticleHandler'  size='lg' rounded color='primary' class='q-my-md'>
       Novo artigo
     </q-btn>
     <div class='flex column' :style=' `gap: 1rem; max-width:${maxWidth}` '>

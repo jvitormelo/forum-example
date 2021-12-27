@@ -14,8 +14,16 @@ yarn json-server
 
 ### Para startar o App em modo de desenvolvedor
 ```bash
-quasar dev
+yarn dev
 ```
+
+
+
+### Para rodar os testes
+```bash
+yarn test
+```
+
 
 
 

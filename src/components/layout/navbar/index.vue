@@ -20,7 +20,7 @@
         >
           ENTRAR
         </q-btn>
-        <q-btn color='primary'      size='md'  rounded @click="toggleDialog('signUp')">
+        <q-btn color='primary' id='sign-up-btn' size='md'  rounded @click="toggleDialog('signUp')">
           CADASTRAR
         </q-btn>
       </div>
