@@ -9,19 +9,21 @@
           SAIR
         </q-btn>
       </div>
-<!--      <div v-else>-->
-<!--        <q-btn-->
-<!--          color='primary'-->
-<!--          class='q-mr-md'-->
-<!--          rounded-->
-<!--          @click="toggleDialog('signIn')"-->
-<!--        >-->
-<!--          ENTRAR-->
-<!--        </q-btn>-->
-<!--        <q-btn color='primary'  rounded @click="toggleDialog('signUp')">-->
-<!--          CADASTRAR-->
-<!--        </q-btn>-->
-<!--      </div>-->
+      <div v-else>
+<!--  //TODO criar menu de hamburger para ficar responsivo no mobile      -->
+        <q-btn
+          color='primary'
+          size='md'
+          class='q-mr-md'
+          rounded
+          @click="toggleDialog('signIn')"
+        >
+          ENTRAR
+        </q-btn>
+        <q-btn color='primary' id='sign-up-btn' size='md'  rounded @click="toggleDialog('signUp')">
+          CADASTRAR
+        </q-btn>
+      </div>
     </q-toolbar>
   </q-header>
 </template>

@@ -2,7 +2,7 @@
   <q-dialog v-model='isOpenSynced'>
     <q-card class='q-pa-md flex column' style='min-width: 30vw'>
       <div class='flex justify-end q-mb-md'>
-        <CloseIcon/>
+        <CloseIcon :on-click='close' />
       </div>
 
       <q-form v-model='formData.isValid' @submit.prevent='handleSubmit' class='flex column'
